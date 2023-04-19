@@ -12,7 +12,9 @@ while True:
     choice = int(input("Escribe una opción: "))
 
     if choice == 1:
-        print("Listar documento.")
+        for file in current_path.iterdir():
+            if file.is_file():
+                print(file.name)
     elif choice == 2:
         print("Leer documento.")
     elif choice == 3:
@@ -21,4 +23,3 @@ while True:
         break
     else:
         print("Opción incorrecta.")
-
