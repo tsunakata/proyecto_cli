@@ -1,4 +1,28 @@
 from pathlib import Path
+
+class ListaDocumentos:
+    def __init__(self):
+        self.files = files
+
+    def listar(self):
+        print('Estos son los documentos en carpeta: ')
+        for i, file in enumerate(self.files):
+            print(f"{i}) {file.name}")
+        
+        selection = int(input("Elige el archivo: "))
+        
+        try:
+            index = int(selection)
+            if index < 0 or index >= len(self.files):
+                raise ValueError
+        except ValueError:
+            print('Opción incorrecta.')
+
+        selected_file = self.files[index]
+        with open(selected_file) as f:
+            print(f.read())
+
+
 current_path = Path.cwd()
 files = list(current_path.glob('*.txt'))
 
@@ -10,33 +34,10 @@ while True:
     choice = int(input("Escribe una opción: "))
 
     if choice == 1:
-        print('Estos son los documentos en carpeta: ')
-        for i, file in enumerate(files):
-            print(f"{i}) {file.name}")
+        listar = ListaDocumentos()
+        listar.listar()
     elif choice == 2:
         print('El programa se detendrá.')
         break
     else:
         print('Opción incorrecta.')
-"""
-while True:
-    print("Menú: ")
-    print("1) Listar documentos.")
-    print("2) Leer documento.")
-    print("3) Eliminar documento.")
-    print("4) Salir.")
-
-    choice = int(input("Escribe una opción: "))
-
-    if choice == 1:
-        for i, file in enumerate(files):
-            print(f"{i}, {file.name}")
-    elif choice == 2:
-        print("Leer documento.")
-    elif choice == 3:
-        print("Eliminar documento.")
-    elif choice == 4:
-        break
-    else:
-        print("Opción incorrecta.")
-"""
