@@ -12,11 +12,11 @@ while True:
     choice = int(input("Escribe una opción: "))
 
     if choice == 1:
-        print("Listar documento")
+        print("Listar documento.")
     elif choice == 2:
-        print("Leer documento")
+        print("Leer documento.")
     elif choice == 3:
-        print("Eliminar documento")
+        print("Eliminar documento.")
     elif choice == 4:
         break
     else:
