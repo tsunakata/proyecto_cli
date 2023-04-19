@@ -1,7 +1,24 @@
 from pathlib import Path
 current_path = Path.cwd()
-print(current_path)
+files = list(current_path.glob('*.txt'))
 
+while True:
+    print('Bienvenido. ¿Listar documentos?')
+    print('1) Sí.')
+    print('2) No.')
+
+    choice = int(input("Escribe una opción: "))
+
+    if choice == 1:
+        print('Estos son los documentos en carpeta: ')
+        for i, file in enumerate(files):
+            print(f"{i}) {file.name}")
+    elif choice == 2:
+        print('El programa se detendrá.')
+        break
+    else:
+        print('Opción incorrecta.')
+"""
 while True:
     print("Menú: ")
     print("1) Listar documentos.")
@@ -12,9 +29,8 @@ while True:
     choice = int(input("Escribe una opción: "))
 
     if choice == 1:
-        for file in current_path.iterdir():
-            if file.is_file():
-                print(file.name)
+        for i, file in enumerate(files):
+            print(f"{i}, {file.name}")
     elif choice == 2:
         print("Leer documento.")
     elif choice == 3:
@@ -23,3 +39,4 @@ while True:
         break
     else:
         print("Opción incorrecta.")
+"""
