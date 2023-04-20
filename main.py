@@ -24,13 +24,15 @@ class ListaDocumentos:
         print('3) Eliminar.')
 
         second_selection = int(input("Elige la opción: "))
+        selected_file = self.files[index]
 
         if second_selection == 1:
-            selected_file = self.files[index]
             with open(selected_file) as f:
                 print(f.read())
         elif second_selection == 2:
-            pass
+            text = input('Ingresa el texto a añadir: ')
+            with open(selected_file, 'a+') as f:
+                print(f.write('\n' + text))
         elif second_selection == 3:
             pass
         else:
