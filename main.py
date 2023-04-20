@@ -18,25 +18,29 @@ class ListaDocumentos:
         except ValueError:
             print('Opción incorrecta.')
 
-        print('¿Qué deseas hacer con el documento?')
-        print('1) Abrir.')
-        print('2) Editar.')
-        print('3) Eliminar.')
+        while True:
+            print('¿Qué deseas hacer con el documento?')
+            print('1) Abrir.')
+            print('2) Editar.')
+            print('3) Eliminar.')
+            print('4) Regresar al menú principal.')
 
-        second_selection = int(input("Elige la opción: "))
-        selected_file = self.files[index]
+            second_selection = int(input("Elige la opción: "))
+            selected_file = self.files[index]
 
-        if second_selection == 1:
-            with open(selected_file) as f:
-                print(f.read())
-        elif second_selection == 2:
-            text = input('Ingresa el texto a añadir: ')
-            with open(selected_file, 'a+') as f:
-                print(f.write('\n' + text))
-        elif second_selection == 3:
-            pass
-        else:
-            print('Opción incorrecta.')
+            if second_selection == 1:
+                with open(selected_file) as f:
+                    print(f.read())
+            elif second_selection == 2:
+                text = input('Ingresa el texto a añadir: ')
+                with open(selected_file, 'a+') as f:
+                    print(f.write('\n' + text))
+            elif second_selection == 3:
+                pass
+            elif second_selection == 4:
+                break
+            else:
+                print('Opción incorrecta.')
 
 
 current_path = Path.cwd()
