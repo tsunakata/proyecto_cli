@@ -18,9 +18,23 @@ class ListaDocumentos:
         except ValueError:
             print('Opción incorrecta.')
 
-        selected_file = self.files[index]
-        with open(selected_file) as f:
-            print(f.read())
+        print('¿Qué deseas hacer con el documento?')
+        print('1) Abrir.')
+        print('2) Editar.')
+        print('3) Eliminar.')
+
+        second_selection = int(input("Elige la opción: "))
+
+        if second_selection == 1:
+            selected_file = self.files[index]
+            with open(selected_file) as f:
+                print(f.read())
+        elif second_selection == 2:
+            pass
+        elif second_selection == 3:
+            pass
+        else:
+            print('Opción incorrecta.')
 
 
 current_path = Path.cwd()
