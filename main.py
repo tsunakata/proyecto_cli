@@ -1,6 +1,5 @@
 from pathlib import Path
 from listar import ListaDocumentos
-import shutil
 
 while True:
     print('Bienvenido. ¿Listar documentos?')
